@@ -1,0 +1,8 @@
+title: OpenSubtitlesDownload.py
+description: This small software is designed to help you find and download subtitles for your favorite videos!
+google_analytics: UA-1353027-2
+show_downloads: true
+theme: jekyll-theme-cayman
+
+gems:
+  - jekyll-mentions
