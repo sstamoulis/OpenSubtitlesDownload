@@ -525,7 +525,7 @@ if 'result' in locals():
     for i in result.filePathListArg:
         filePath = os.path.abspath(i)
         if os.path.isdir(filePath):
-            result.filePathListArg.extend(os.listdir(filePath))
+            result.filePathListArg.extend([os.path.join(filePath, x) for x in os.listdir(filePath)])
         elif checkFileValidity(filePath):
             videoPathList.append(filePath)
 else:
