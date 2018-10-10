@@ -483,6 +483,8 @@ if len(sys.argv) > 1:
             opt_selection_language = 'on'
             if opt_language_suffix != 'off':
                 opt_language_suffix = 'on'
+    if result.force:
+        opt_search_overwrite = 'on'
 
 # GUI auto detection
 if opt_gui == 'auto':
@@ -522,7 +524,9 @@ if 'result' in locals():
     # Go through the paths taken from arguments, and extract only valid video paths
     for i in result.filePathListArg:
         filePath = os.path.abspath(i)
-        if checkFileValidity(filePath):
+        if os.path.isdir(filePath):
+            result.filePathListArg.extend(os.listdir(filePath))
+        elif checkFileValidity(filePath):
             videoPathList.append(filePath)
 else:
     # No filePathListArg from the arg parser? Try selected file(s) from nautilus environment variables:
