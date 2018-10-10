@@ -68,7 +68,7 @@ osd_language = 'en'
 #    > Supported ISO codes: http://www.opensubtitles.org/addons/export_languages.php
 # 2/ Search for subtitles in several languages at once by using multiple codes separated by a comma:
 #    > Exemple: opt_languages = ['eng,fre']
-opt_languages = ['eng']
+opt_languages = ['ell']
 
 # Write 2-letter language code (ex: _en) at the end of the subtitles file. 'on', 'off' or 'auto'.
 # If you are regularly searching for several language at once, you sould use 'on'.
@@ -91,7 +91,7 @@ opt_search_mode = 'hash_then_filename'
 opt_selection_mode = 'default'
 
 # Search and download a subtitles even if a subtitles file already exists.
-opt_search_overwrite = 'on'
+opt_search_overwrite = 'off'
 
 # ==== GUI settings ============================================================
 
@@ -100,7 +100,7 @@ opt_search_overwrite = 'on'
 # - gnome (GNOME/GTK based environments, using 'zenity' backend)
 # - kde (KDE/Qt based environments, using 'kdialog' backend)
 # - cli (Command Line Interface)
-opt_gui = 'auto'
+opt_gui = 'cli'
 
 # Change the subtitles selection GUI size:
 opt_gui_width  = 720
@@ -455,6 +455,7 @@ parser.add_argument('-t', '--select', help="Selection mode: manual, default, aut
 parser.add_argument('-a', '--auto', help="Force automatic selection and download of the best subtitles found", action='store_true')
 parser.add_argument('-v', '--verbose', help="Force verbose output", action='store_true')
 parser.add_argument('-l', '--lang', help="Specify the language in which the subtitles should be downloaded (default: eng).\nSyntax:\n-l eng,fre: search in both language\n-l eng -l fre: download both language", nargs='?', action='append')
+parser.add_argument('-f', '--force', help="Overwrite subtitle file if it already exists", action="store_true")
 
 parser.add_argument('filePathListArg', help="The video file(s) for which subtitles should be searched and downloaded", nargs='+')
 
